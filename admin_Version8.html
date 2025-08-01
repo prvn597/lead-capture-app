@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Panel - Expo Lead Capture</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="glass-bg"></div>
+  <div class="glass-container">
+    <h1>Admin Panel</h1>
+    <div class="glass-card">
+      <h2 class="section-title">Dropdown Management</h2>
+      <form id="fields-form">
+        <label>Products (comma separated):</label>
+        <input type="text" id="products" style="width:100%"><br/><br/>
+        <label>Salespeople (comma separated):</label>
+        <input type="text" id="salespeople" style="width:100%"><br/><br/>
+        <label>Google Apps Script Endpoint:</label>
+        <input type="text" id="endpoint" style="width:100%"><br/><br/>
+        <button type="submit" class="glass-btn-primary">Save Settings</button>
+      </form>
+    </div>
+    <div class="glass-card">
+      <h2 class="section-title">User Keys</h2>
+      <form id="key-add-form" style="margin-bottom: 14px;">
+        <input type="text" id="new-key" placeholder="Enter new user key" required>
+        <button type="submit" class="glass-btn-primary">Add Key</button>
+      </form>
+      <div id="keys-list"></div>
+    </div>
+    <div class="glass-card">
+      <h2 class="section-title">Settings Export/Import</h2>
+      <button onclick="exportSettings()" class="glass-btn-primary">Export Settings</button>
+      <input type="file" id="import-settings-file" style="display:none;" accept="application/json">
+      <button onclick="document.getElementById('import-settings-file').click()" class="glass-btn-primary">Import Settings</button>
+      <button onclick="syncFromGithub()" class="glass-btn-primary" style="background:#007aff;color:#fff;">Sync From GitHub</button>
+      <div id="sync-status" style="margin-top:10px;"></div>
+    </div>
+  </div>
+  <script src="admin.js"></script>
+</body>
+</html>

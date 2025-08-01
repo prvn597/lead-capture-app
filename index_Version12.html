@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Expo Lead Capture</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4.1.1/dist/tesseract.min.js"></script>
+</head>
+<body>
+  <div class="glass-bg"></div>
+  <div class="glass-container">
+    <h1>Expo Lead Capture</h1>
+    <div id="greeting" style="font-size:16px;margin-bottom:8px;color:#007aff;"></div>
+    <div class="glass-card glass-form-card">
+      <button type="button" class="glass-btn-primary" id="scan-btn">Scan Business Card</button>
+      <input type="file" id="card-image" accept="image/*" capture="environment" style="display:none;">
+      <img id="card-preview" style="display:none;max-width:120px;margin:8px 0;border-radius:10px;box-shadow:0 2px 8px #0002;">
+      <div id="ocr-status" style="margin:10px 0;color:#007aff;font-weight:500;"></div>
+      <form id="lead-form" autocomplete="off">
+        <div class="glass-form-row">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" autocomplete="name" required>
+        </div>
+        <div class="glass-form-row">
+          <label for="company">Company</label>
+          <input type="text" id="company" autocomplete="organization">
+        </div>
+        <div class="glass-form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" autocomplete="email" required>
+        </div>
+        <div class="glass-form-row">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" autocomplete="tel">
+        </div>
+        <div class="glass-form-row">
+          <label for="interest">Interest / Product</label>
+          <select id="interest" required></select>
+        </div>
+        <div class="glass-form-row">
+          <label for="location">Location</label>
+          <select id="location"></select>
+        </div>
+        <div class="glass-form-row">
+          <label for="priority">Priority</label>
+          <select id="priority">
+            <option value="Normal">Normal</option>
+            <option value="High">High</option>
+            <option value="Urgent">Urgent</option>
+          </select>
+        </div>
+        <div class="glass-form-row">
+          <label for="salesperson">Sales Person</label>
+          <select id="salesperson"></select>
+        </div>
+        <div class="glass-form-row">
+          <label for="notes">Notes</label>
+          <textarea id="notes" rows="2" placeholder="Additional info"></textarea>
+        </div>
+        <button type="submit" class="glass-btn-primary">Save Lead</button>
+      </form>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

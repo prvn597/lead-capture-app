@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>User Login - Expo Lead Capture</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="glass-bg"></div>
+  <div class="glass-container" style="max-width:360px;">
+    <h1>Expo Lead Capture</h1>
+    <div class="glass-card">
+      <form id="user-login-form">
+        <label>User Key</label>
+        <input type="text" id="user-key" placeholder="Enter your key" required>
+        <button type="submit" class="glass-btn-primary" style="margin-top:14px;">Login</button>
+      </form>
+      <div id="user-login-error" style="color:#ff4f70;margin-top:8px;"></div>
+    </div>
+    <div id="user-name-modal" class="glass-card" style="display:none;">
+      <h2>Enter Your Name</h2>
+      <form id="user-name-form">
+        <input type="text" id="user-name" placeholder="Your full name" required>
+        <button type="submit" class="glass-btn-primary" style="margin-top:10px;">Continue</button>
+      </form>
+    </div>
+  </div>
+  <script src="login.js"></script>
+</body>
+</html>

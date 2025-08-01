@@ -1,0 +1,74 @@
+body {
+  margin:0;
+  font-family: "SF Pro Display", "Segoe UI", Arial, sans-serif;
+  background: #e0e7ef;
+  min-height: 100vh;
+}
+.glass-bg {
+  background: linear-gradient(120deg,#e0e7ef 0%,#f0f4fb 100%);
+  position:fixed;left:0;top:0;width:100vw;height:100vh;z-index:-1;
+}
+.glass-container {
+  max-width: 420px;
+  margin: 38px auto;
+  padding: 12px;
+}
+.glass-card {
+  background: rgba(255,255,255,0.75);
+  box-shadow: 0 8px 24px #007aff12;
+  border-radius: 18px;
+  padding: 24px 20px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(6px);
+}
+h1 {
+  text-align:center;
+  font-weight:700;
+  color:#007aff;
+  letter-spacing:0.5px;
+  margin-bottom:24px;
+}
+h2, .section-title {
+  color:#007aff;
+  margin-bottom:12px;
+  font-weight:600;
+}
+label { font-weight:500; color:#333; display:block; margin-bottom:4px;}
+input, select, textarea {
+  width:100%;
+  border-radius:9px;
+  border:1px solid #d6dee7;
+  padding:9px;
+  margin-bottom:10px;
+  font-size:1em;
+  background:rgba(255,255,255,0.9);
+  outline:none;
+  box-sizing:border-box;
+}
+input[type="file"] { padding:7px 0;}
+button.glass-btn-primary {
+  background: #007aff;
+  color: #fff;
+  font-weight:600;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-size: 1em;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #007aff22;
+  margin-top: 6px;
+  transition: background 0.18s;
+}
+button.glass-btn-primary:hover {
+  background: #005fcc;
+}
+.glass-form-row {
+  margin-bottom: 16px;
+}
+@media (max-width:500px) {
+  .glass-container { padding:0; }
+  .glass-card { padding: 18px 7px;}
+}
+.key-row {display:flex;align-items:center;margin-bottom:4px;}
+.key-row span {flex:1;}
+.key-row button {margin-left:8px;background:#ff4f70;color:white;border:none;padding:2px 9px;border-radius:6px;cursor:pointer;}
