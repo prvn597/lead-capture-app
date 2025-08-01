@@ -46,6 +46,7 @@ function importSettings(file) {
   reader.readAsText(file);
 }
 
+// --- User Keys logic
 function getKeys() {
   return JSON.parse(localStorage.getItem('user_keys') || '[]');
 }
@@ -87,21 +88,22 @@ document.getElementById('key-add-form').onsubmit = function(e) {
   }
 };
 
-// --- Sync from GitHub (example: adjust the URL to your repo)
-function syncFromGithub() {
-  const url = 'https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/settings.json';
-  document.getElementById('sync-status').innerText = "Syncing from GitHub...";
-  fetch(url)
-    .then(r => r.json())
-    .then(settings => {
-      localStorage.setItem('products', settings.products || '');
-      localStorage.setItem('salespeople', settings.salespeople || '');
-      localStorage.setItem('endpoint', settings.endpoint || '');
-      localStorage.setItem('user_keys', JSON.stringify(settings.user_keys || []));
-      renderKeys();
-      document.getElementById('sync-status').innerText = "Synced successfully!";
-    })
-    .catch(e => {
-      document.getElementById('sync-status').innerText = "Sync failed.";
-    });
+// --- Sync to GitHub (example)
+function syncToGithub() {
+  const url = 'https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/settings.json'; // Replace with your repo!
+  const settings = {
+    products: localStorage.getItem('products') || '',
+    salespeople: localStorage.getItem('salespeople') || '',
+    endpoint: localStorage.getItem('endpoint') || '',
+    user_keys: JSON.parse(localStorage.getItem('user_keys') || '[]')
+  };
+  fetch(url, {
+    method: 'PUT', // Use correct method based on GitHub API
+    body: JSON.stringify(settings),
+    headers: { "Content-Type": "application/json" }
+  }).then(() => {
+    document.getElementById('sync-status').textContent = "Synced to GitHub successfully!";
+  }).catch(() => {
+    document.getElementById('sync-status').textContent = "Failed to sync to GitHub!";
+  });
 }
